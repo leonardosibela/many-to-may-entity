@@ -20,9 +20,12 @@ namespace Cursos
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        private SchoolDBContext dbContext;
         public MainWindow()
         {
             InitializeComponent();
+            dbContext = new SchoolDBContext();
         }
     }
 }
