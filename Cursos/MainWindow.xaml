@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cursos"
         mc:Ignorable="d"
-        Title="Etec" Height="350" Width="525">
+        Title="Etec" Height="350" Width="770.8">
     <Grid>
-        
+        <Label x:Name="label" Content="Nome" HorizontalAlignment="Left" Margin="10,22,0,0" VerticalAlignment="Top" Height="26" Width="43"/>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="23" Margin="66,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="259"/>
+        <Label x:Name="label_Copy" Content="Cursos:" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" Height="26" Width="56"/>
+        <ListBox x:Name="lstCourses" HorizontalAlignment="Left" Height="201" Margin="66,69,0,0" VerticalAlignment="Top" Width="259"
+            SelectionMode="Multiple" ItemsSource="{Binding}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding name}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <DataGrid x:Name="dtgStudents" HorizontalAlignment="Left" Margin="362,69,0,0" VerticalAlignment="Top" Height="242" Width="384"/>
+        <ComboBox x:Name="cboCourses" HorizontalAlignment="Left" Margin="362,22,0,0" VerticalAlignment="Top" Width="304"/>
+        <Button x:Name="btnFilter" Content="Filtrar" HorizontalAlignment="Left" Margin="671,25,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnRegistry" Content="Cadastrar" HorizontalAlignment="Left" Margin="10,292,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnDelete" Content="Remover" HorizontalAlignment="Left" Margin="90,292,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnUpdate" Content="Atualizar" HorizontalAlignment="Left" Margin="170,292,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnClean" Content="Limpar" HorizontalAlignment="Left" Margin="250,292,0,0" VerticalAlignment="Top" Width="75"/>
+
     </Grid>
 </Window>
