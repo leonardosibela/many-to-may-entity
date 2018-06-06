@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cursos"
         mc:Ignorable="d"
-        Title="Etec" Height="350" Width="770.8">
+        Title="Etec" Height="376.4" Width="770.8">
     <Grid>
         <Label x:Name="label" Content="Nome" HorizontalAlignment="Left" Margin="10,22,0,0" VerticalAlignment="Top" Height="26" Width="43"/>
         <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="23" Margin="66,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="259"/>
@@ -14,17 +14,22 @@
             SelectionMode="Multiple" ItemsSource="{Binding}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding name}"/>
+                    <TextBlock Text="{Binding CourseName}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <DataGrid x:Name="dtgStudents" HorizontalAlignment="Left" Margin="362,69,0,0" VerticalAlignment="Top" Height="242" Width="384"/>
-        <ComboBox x:Name="cboCourses" HorizontalAlignment="Left" Margin="362,22,0,0" VerticalAlignment="Top" Width="304"/>
+        <DataGrid x:Name="dtgStudents" HorizontalAlignment="Left" Margin="362,69,0,0" VerticalAlignment="Top" Height="242" Width="384" CanUserAddRows="False" IsReadOnly="True" SelectionChanged="dtgStudents_SelectionChanged" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=StudentId}" Header="ID"/>
+                <DataGridTextColumn Binding="{Binding Path=StudentName}" Header="Nome" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <ComboBox x:Name="cboCourses" HorizontalAlignment="Left" Margin="362,22,0,0" VerticalAlignment="Top" Width="304" DisplayMemberPath="CourseName"/>
         <Button x:Name="btnFilter" Content="Filtrar" HorizontalAlignment="Left" Margin="671,25,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btnRegistry" Content="Cadastrar" HorizontalAlignment="Left" Margin="10,292,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btnDelete" Content="Remover" HorizontalAlignment="Left" Margin="90,292,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btnUpdate" Content="Atualizar" HorizontalAlignment="Left" Margin="170,292,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btnClean" Content="Limpar" HorizontalAlignment="Left" Margin="250,292,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnRegistry" Content="Cadastrar" HorizontalAlignment="Left" Margin="10,292,0,0" VerticalAlignment="Top" Width="75" Click="btnRegistry_Click"/>
+        <Button x:Name="btnDelete" Content="Remover" HorizontalAlignment="Left" Margin="90,292,0,0" VerticalAlignment="Top" Width="75" Click="btnDelete_Click"/>
+        <Button x:Name="btnUpdate" Content="Atualizar" HorizontalAlignment="Left" Margin="170,292,0,0" VerticalAlignment="Top" Width="75" Click="btnUpdate_Click"/>
+        <Button x:Name="btnClean" Content="Limpar" HorizontalAlignment="Left" Margin="250,292,0,0" VerticalAlignment="Top" Width="75" Click="btnClean_Click"/>
 
     </Grid>
 </Window>
